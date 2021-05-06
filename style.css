@@ -30,8 +30,15 @@ a {
   text-decoration: none;
   color: white;
   padding: 16px;
-  background: black
-    url(https://images.unsplash.com/photo-1464802686167-b939a6910659?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c3BhY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60);
+  background-size: 100%;
+  transition: background-size 1s ease-in-out;
+  background-position: center 20%;
+  background-image: url(https://images.unsplash.com/photo-1464802686167-b939a6910659?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c3BhY2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=60);
+}
+
+.starlink:hover {
+  transition-duration: 10s;
+  background-size: 500%;
 }
 
 .content-padding {
@@ -86,12 +93,26 @@ a {
 .visible {
   opacity: 1;
   animation-name: fadeIn;
-  animation-duration: 0.5s;
+  animation-duration: 0.7s;
   animation-iteration-count: once;
 }
 
+/* Some utility classes we can use to fade-in elements at different times */
+.fade-early {
+  animation: 0.5s fadeIn;
+}
+
+.fade-middle {
+  animation: 1s fadeIn;
+}
+
+.fade-late {
+  animation: 2s fadeIn;
+}
+
 @keyframes fadeIn {
-  0% {
+  0%,
+  20% {
     opacity: 0;
     transform: translateY(-40px);
   }
@@ -108,17 +129,32 @@ a {
 .project-page {
   overflow: auto;
 }
-body > * {
-  animation-name: fadeIn;
-  animation-duration: 0.5s;
-  animation-iteration-count: once;
-}
 
 .back-link {
   display: inline-block;
   margin: 0 0 1rem 0;
   padding: 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
+}
+
+@keyframes point-left {
+  0%,
+  100% {
+    transform: translateX(-20%);
+  }
+  50% {
+    transform: translateX(10%);
+  }
+}
+
+.back-link::before {
+  content: "👈";
+  display: inline-block;
+  margin-right: 0.3em;
+}
+
+.back-link:hover::before {
+  animation: 0.5s ease-in-out 0s infinite alternate point-left;
 }
 
 .project-title {
