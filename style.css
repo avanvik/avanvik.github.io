@@ -13,23 +13,10 @@ body {
   max-width: 1280px;
   margin: 0 auto;
   position: relative;
-  background: url("./assets/background.svg"), url("./assets/bg-blob_1.svg"), url("./assets/bg-blob_2.svg"),
-    url("./assets/bg-blob_3.svg"), url("./assets/bg-blob_4.svg");
-  background-size: cover, 40% 40%, 20% 20%, 20% 20%, 50% 50%;
-  background-position: center center, 110% 25%, 59% 41%, 0 71%, -10% 140%;
+  background: url("./assets/background.svg");
+  background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
-  animation: blobs 10s alternate infinite ease-in-out;
-}
-
-@keyframes blobs {
-  0%,
-  100% {
-    background-position: center center, 110% 25%, 59% 41%, 0 71%, -10% 140%;
-  }
-
-  50% {
-    background-position: center center, 110% 20%, 59% 40%, 0 75%, -10% 130%;
-  }
 }
 
 a {
